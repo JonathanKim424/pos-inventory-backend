@@ -1,10 +1,8 @@
 import { Router } from 'express';
-import categoryRoutes from './category-routes.js';
-import taskRoutes from './task-routes.js';
+import vendorRoutes from './vendor-routes.js';
 
 const router = Router();
 
-router.use('/categories', categoryRoutes);
-router.use('/tasks', taskRoutes);
+router.use('/vendors', vendorRoutes);
 
 export default router;

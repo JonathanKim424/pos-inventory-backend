@@ -1,31 +1,42 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/connection.js';
 
-class Task extends Model {}
+class Vendor extends Model {}
 
-Task.init(
+Vendor.init(
     {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        text: {
+        vendor_name: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
             validate: {
                 len: [1]
             }
         },
-        day : {
+        vendor_address: {
             type: DataTypes.STRING,
-            allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        reminder: {
-            type: DataTypes.BOOLEAN,
+        vendor_phone: {
+            type: DataTypes.STRING,
+            validate: {
+                isNumeric: true,
+                len: 10
+            }
+        },
+        vendor_fax: {
+            type: DataTypes.INTEGER,
+            validate: {
+                isNumeric: true,
+                len: 10
+            }
         }
     },
     {
@@ -33,8 +44,8 @@ Task.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'task'
+        modelName: 'vendor'
     }
 );
 
-export default Task;
+export default Vendor;

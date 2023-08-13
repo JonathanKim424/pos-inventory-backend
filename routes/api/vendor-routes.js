@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import Category from '../../models/Category.js';
+import Vendor from '../../models/Vendor.js';
 
 const router = Router();
 
 router.get('/', (req, res) => {
-    Category.findAll({})
-    .then(dbCategoryData => res.json(dbCategoryData))
+    Vendor.findAll({})
+    .then(dbVendorData => res.json(dbVendorData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
